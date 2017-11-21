@@ -13,31 +13,26 @@ xs : list
 
 Return
 ------
-none
- Print of the highest number
+- : Int or Float
+ Returns the highest Int/FLoat
 """
 
 def myMax(xs):
-    if len(xs) == 0:
-        raise Exception("List is empty")
+    assert len(xs) > 0, 'list is empty!'
 
-    highest = xs[1]
+    highest = xs[0]
 
     for i in xs:
-        if i > highest and type(i) == int or type(i) == float:
-            highest = i
-        elif type(i) != int and type(i) != float:
-            raise Exception("List contains other types than float or int")
-    print ("\nOpdracht 1: ", highest)
+        assert type(i) == int or type(i) == float
 
+        if i > highest:
+            highest = it
 
-ys1 = [-1,-2,-3]
-#ys2 = [1,2,3,4,8,'a']
-#ys3 = []
+    return highest
 
-myMax(ys1)
-#myMax(ys2)
-#myMax(ys3)
+ys = [-1,-2,-3]
+print ("\nOpdracht 1: ", myMax(ys))
+print (ys)
 
 
 """
@@ -48,15 +43,14 @@ xs : string
 
 Return
 ------
-none
+- : list of ints
 Just a print of the result, list of all digits in the given string.
 """
 # Opdracht 2
 def getNumbers(xs):
-    print  ("\nOpdracht 2: ", re.findall('\d+', xs))
+    return re.findall('\d+', xs)
 
-getNumbers('een123zin45 6met-632meerdere+7777getallen')
-
+print  ("\nOpdracht 2: ", getNumbers('een123zin45 6met-632meerdere+7777getallen'))
 
 """
 print of all the correct prime numbers up to 1000
@@ -66,8 +60,8 @@ none
 
 Return
 ------
-none
-print the prime numbers
+xs : list of ints
+returns list with the prime numbers
 """
 # Opdracht 3
 def eratoshenes():
@@ -78,9 +72,9 @@ def eratoshenes():
             x += i
             if x <= 1000 and x in xs:
                 xs.remove(x)
-    print ("\nOpdracht 3: ", xs)
+    return xs
 
-eratoshenes();
+print ("\nOpdracht 3: ", eratoshenes());
 
 
 """
@@ -90,16 +84,15 @@ none
 
 Return
 ------
-none
- print amount of lists with duplicated numbers
+- : int
+ return amount of lists with duplicated numbers
 """
 # opdracht 4
 def birthDayChecker():
     dups = list (map(hasDups, generateYears()))
     getOnlyDups = list (filter(lambda b : b == True, dups))
 
-    print ("\nOpdracht 4: ", (len (getOnlyDups)))
-
+    return (len (getOnlyDups))
 
 """
 Generate 100 lists, which represent a year and contains 23 random numbers from 1 to 365
@@ -129,6 +122,7 @@ Return
 - : boolean
 returns True if list contains duplicated item else False.
 """
+
 def hasDups(xs):
     seen = set()
     for day in xs:
@@ -138,4 +132,4 @@ def hasDups(xs):
             seen.add(day)
     return False
 
-birthDayChecker()
+print ("\nOpdracht 4: ", birthDayChecker())

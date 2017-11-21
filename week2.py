@@ -7,25 +7,25 @@ def machtv3(a,n):
     while n > 0:
         if n % 2 == 0:
             n = n // 2
-            m = a * 2
+            m += a * 2
         else:
             n -= 1
-            m =  m * 2
+            m += a * 2
     print("Opdracht1: ", m)
 
-machtv3(2,10)
+machtv3(2,2)
 
 class myStack(list):
     def push(self, el):
         self.append(el)
 
     def pop(self):
-        if not self.isEmpty():
-            del self[-1]
-        else:
-            raise Exception("Stack is empty!")
+        assert not self.isEmpty(), "Stack is empty"
+        del self[-1]
+
     def peek(self):
         print (self)
+
     def isEmpty(self):
         return self == []
 
