@@ -4,7 +4,7 @@ import random
 # Opdracht 1
 
 """
-description
+Return the highest number of a list
 Parameters
 ----------
 xs : list
@@ -18,9 +18,11 @@ none
 """
 
 def myMax(xs):
-    highest = 0
     if len(xs) == 0:
         raise Exception("List is empty")
+
+    highest = xs[1]
+
     for i in xs:
         if i > highest and type(i) == int or type(i) == float:
             highest = i
@@ -29,7 +31,7 @@ def myMax(xs):
     print ("\nOpdracht 1: ", highest)
 
 
-ys1 = [1,2,3,4,8,12,8,19,33,88,12]
+ys1 = [-1,-2,-3]
 #ys2 = [1,2,3,4,8,'a']
 #ys3 = []
 
@@ -39,7 +41,7 @@ myMax(ys1)
 
 
 """
-description
+Return the digits in the string
 Parameters
 ----------
 xs : string
@@ -57,7 +59,7 @@ getNumbers('een123zin45 6met-632meerdere+7777getallen')
 
 
 """
-description
+print of all the correct prime numbers up to 1000
 Parameters
 ----------
 none
@@ -65,7 +67,7 @@ none
 Return
 ------
 none
-print of all the correct prime numbers up to 1000
+print the prime numbers
 """
 # Opdracht 3
 def eratoshenes():
@@ -82,7 +84,6 @@ eratoshenes();
 
 
 """
-description
 Parameters
 ----------
 none
@@ -90,7 +91,7 @@ none
 Return
 ------
 none
-print of the amount of lists with duplicated numbers in it
+ print amount of lists with duplicated numbers
 """
 # opdracht 4
 def birthDayChecker():
