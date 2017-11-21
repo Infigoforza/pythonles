@@ -14,7 +14,7 @@ xs : list
 Return
 ------
 none
- Just a print
+ Print of the highest number
 """
 
 def myMax(xs):

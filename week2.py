@@ -80,6 +80,18 @@ def checkString(s):
 checkString("([[<([])>]])")
 #checkString("((<<]))")
 
+"""
+description
+Parameters
+----------
+n : Int
+  A number that will be converted to bin
+
+Return
+------
+- : String
+  returns a string with binary representation
+"""
 def myBin(n):
     if n == 0:
         return ''
