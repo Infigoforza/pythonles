@@ -1,19 +1,34 @@
 import random
 
 def machtv3(a,n):
-    assert n > 0
+    """
+    Calculate a ^ n
+    Parameters
+    ----------
+    a : Int
+      Int with base value
+    n : Int
+      Int the power for a
 
+    Return
+    ------
+    m : Int
+      returns the result
+    """
+    assert n > 0
     m = 1
+
     while n > 0:
         if n % 2 == 0:
-            n = n // 2
-            m += a * 2
+            n = n / 2
+            a = a * a
         else:
+            m = m * a
             n -= 1
-            m += a * 2
-    print("Opdracht1: ", m)
 
-machtv3(2,2)
+    return m
+
+print (machtv3(2,64))
 
 class myStack(list):
     def push(self, el):
@@ -29,37 +44,36 @@ class myStack(list):
     def isEmpty(self):
         return self == []
 
-print ("\nOpdracht 2: ")
-stack = myStack()
+# print ("\nOpdracht 2: ")
+# stack = myStack()
+# # stack.pop()
+# print ("Stack is empty: ", stack.isEmpty())
+# stack.push(1)
+# print ("Stack push 1: ", stack)
+# stack.push(2)
+# print ("Stack push 2: ", stack)
+# stack.push(3)
+# print ("Stack push 3: ", stack)
+#
+# print ("Stack is empty: ", stack.isEmpty())
 # stack.pop()
-print ("Stack is empty: ", stack.isEmpty())
-stack.push(1)
-print ("Stack push 1: ", stack)
-stack.push(2)
-print ("Stack push 2: ", stack)
-stack.push(3)
-print ("Stack push 3: ", stack)
+# print ("Pop: ", stack)
+#
+# print ("\nOpdracht 3")
 
-print ("Stack is empty: ", stack.isEmpty())
-stack.pop()
-print ("Pop: ", stack)
-
-print ("\nOpdracht 3")
-
-
-"""
-description
-Parameters
-----------
-s : String
-  String with symbols
-
-Return
-------
-none
-  print stack after each step
-"""
 def checkString(s):
+    """ stack machine with symbols
+    Parameters
+    ----------
+    s : String
+      String with symbols
+
+    Return
+    ------
+    none
+      print stack after each step
+    """
+
     stringStack = myStack()
     for c in s:
         if c == '<' or c == '(' or c == '[':
@@ -77,22 +91,24 @@ def checkString(s):
         else:
             raise Exception("Incorrect string")
         print (stringStack)
+
 checkString("([[<([])>]])")
 #checkString("((<<]))")
 
-"""
-description
-Parameters
-----------
-n : Int
-  A number that will be converted to bin
 
-Return
-------
-- : String
-  returns a string with binary representation
-"""
 def myBin(n):
+    """Converts a number to an string with the binary represantation of the give number
+
+    ----------
+    n : Int
+      A number that will be converted to bin
+
+    Return
+    ------
+    - : String
+      returns a string with binary representation
+    """
+
     if n == 0:
         return ''
     else:
@@ -123,7 +139,8 @@ def qsort(a,low=0,high=-1):
         if m > 0:
             qsort(a,low,m-1)
             qsort(a,m+1,high)
-    print (a)
+    #print (a)
 
 qlist = [5,4,3,2,1]
-qsort(qlist, 1, 4)
+qsort(qlist, 0, -1)
+print (qlist)

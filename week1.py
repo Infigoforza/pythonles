@@ -2,7 +2,7 @@ import re
 import random
 
 # Opdracht 1
-
+def myMax(xs):
 """
 Return the highest number of a list
 Parameters
@@ -16,8 +16,6 @@ Return
 - : Int or Float
  Returns the highest Int/FLoat
 """
-
-def myMax(xs):
     assert len(xs) > 0, 'list is empty!'
 
     highest = xs[0]
@@ -35,6 +33,8 @@ print ("\nOpdracht 1: ", myMax(ys))
 print (ys)
 
 
+# Opdracht 2
+def getNumbers(xs):
 """
 Return the digits in the string
 Parameters
@@ -46,12 +46,12 @@ Return
 - : list of ints
 Just a print of the result, list of all digits in the given string.
 """
-# Opdracht 2
-def getNumbers(xs):
     return re.findall('\d+', xs)
 
 print  ("\nOpdracht 2: ", getNumbers('een123zin45 6met-632meerdere+7777getallen'))
 
+# Opdracht 3
+def eratoshenes():
 """
 print of all the correct prime numbers up to 1000
 Parameters
@@ -63,8 +63,6 @@ Return
 xs : list of ints
 returns list with the prime numbers
 """
-# Opdracht 3
-def eratoshenes():
     xs =  [i for i in range(2,1001)]
     for i in xs:
         x = i
@@ -77,6 +75,8 @@ def eratoshenes():
 print ("\nOpdracht 3: ", eratoshenes());
 
 
+# opdracht 4
+def birthDayChecker():
 """
 Parameters
 ----------
@@ -87,13 +87,12 @@ Return
 - : int
  return amount of lists with duplicated numbers
 """
-# opdracht 4
-def birthDayChecker():
     dups = list (map(hasDups, generateYears()))
     getOnlyDups = list (filter(lambda b : b == True, dups))
 
     return (len (getOnlyDups))
 
+def generateYears():
 """
 Generate 100 lists, which represent a year and contains 23 random numbers from 1 to 365
 Parameters
@@ -105,13 +104,13 @@ Return
 allYears: list of lists with ints
 list of lists with all years
 """
-def generateYears():
     allYears = []
     for i in range(100):
         year = [random.randint(1,366) for x in range(23)]
         allYears.append(year)
     return allYears
 
+def hasDups(xs):
 """
 Checks if a list has duplicated items
 ----------
@@ -122,8 +121,6 @@ Return
 - : boolean
 returns True if list contains duplicated item else False.
 """
-
-def hasDups(xs):
     seen = set()
     for day in xs:
         if day in seen:
