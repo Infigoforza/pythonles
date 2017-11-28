@@ -35,10 +35,11 @@ class myStack(list):
 
     def pop(self):
         assert not self.isEmpty(), "Stack is empty"
-        del self[-1]
+        list.pop(self)
 
     def peek(self):
-        print (self)
+        assert not self.isEmpty(), "Stack is empty"
+        self[-1]
 
     def isEmpty(self):
         return self == []
@@ -74,6 +75,8 @@ def checkString(s):
     """
 
     stringStack = myStack()
+    if len(s) % 2 == 0:
+        raise Exception("Incorrect length of elements!")
     for c in s:
         if c == '<' or c == '(' or c == '[':
             stringStack.push(c)
@@ -92,7 +95,7 @@ def checkString(s):
         print (stringStack)
 
 checkString("([[<([])>]])")
-#checkString("((<<]))")
+checkString("(()")
 
 
 def myBin(n):
@@ -125,7 +128,8 @@ def qsort(a,low=0,high=-1):
     if high == -1:
         high = len(a) -1
     if low < high:
-        swap(a,low, min(a))
+        subList = list(range(low,high+1))
+        swap(a,low, min(subList))
         m = low
         for j in range(low+1,high+1):
             count += 1

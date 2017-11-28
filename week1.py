@@ -1,4 +1,3 @@
-import re
 import random
 
 # Opdracht 1
@@ -48,18 +47,18 @@ def getNumbers(xs):
     allNumbers = []
     n = ""
     for idx, c in enumerate(xs):
-        if c.isdigit():
-            n += c
-            if idx == len(xs) - 1:
-                allNumbers.append(int(n))
-        else:
-            if len(n) >= 1:
-                allNumbers.append(int(n))
-                n = ""
+      if c.isdigit():
+          n += c
+          if idx == len(xs) - 1:
+              allNumbers.append(int(n))
+      else:
+          if len(n) >= 1:
+              allNumbers.append(int(n))
+              n = ""
 
     return allNumbers
 
-print  ("\nOpdracht 2: ", getNumbers('een123zin45 6met-632meerdere+7777getallen88'))
+print  ("\nOpdracht 2: ", getNumbers('een123zin45 6met-632meerdere+7777getallen99'))
 
 # Opdracht 3
 def eratoshenes():
