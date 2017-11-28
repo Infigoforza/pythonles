@@ -1,19 +1,18 @@
 import random
 
 def machtv3(a,n):
-    """
-    Calculate a ^ n
-    Parameters
-    ----------
-    a : Int
-      Int with base value
-    n : Int
-      Int the power for a
+    """ Calculate a ^ n
+        Parameters
+        ----------
+        a : Int
+          Int with base value
+        n : Int
+          Int the power for a
 
-    Return
-    ------
-    m : Int
-      returns the result
+        Return
+        ------
+        m : Int
+          returns the result
     """
     assert n > 0
     m = 1
@@ -117,30 +116,27 @@ def myBin(n):
 print ("\nOpdracht 4: ", "0b" + myBin(11))
 
 
+count = 0
 print ("\nOpdracht 5: ")
 def swap(a,i,j):
     a[i],a[j] = a[j],a[i]
-
 def qsort(a,low=0,high=-1):
+    global count
     if high == -1:
         high = len(a) -1
     if low < high:
-        swap(a,low, random.randint(low,high))
+        swap(a,low, min(a))
         m = low
-    for j in range(low+1,high+1):
-        if a[j] < a[low]:
-            m += 1
-            swap(a,m,j)
-                # low < i <= m : a[i] < a[low]
-                # i > m : a[i] >= a[low]
-            swap(a,low,m)
-                # low <= i < m : a[i] < a[m]
-                # i > m : a[i] >= a[m]
+        for j in range(low+1,high+1):
+            count += 1
+            if a[j] < a[low]:
+                m += 1
+                swap(a,m,j)
+        swap(a,low,m)
         if m > 0:
             qsort(a,low,m-1)
-            qsort(a,m+1,high)
-    #print (a)
+        qsort(a,m+1,high)
 
-qlist = [5,4,3,2,1]
-qsort(qlist, 0, -1)
-print (qlist)
+qlist = list (range(100))
+qsort(qlist)
+print(count)
